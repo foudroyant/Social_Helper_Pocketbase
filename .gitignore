@@ -2,6 +2,3 @@
 pocketbase.exe
 pocketbase.exe.*
 *.exe
-
-# Optionnel (si tu veux être strict)
-pocketbase_windows*
