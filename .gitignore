@@ -2,3 +2,5 @@
 pocketbase.exe
 pocketbase.exe.*
 *.exe
+
+pb_data/
