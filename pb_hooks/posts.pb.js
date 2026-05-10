@@ -11,6 +11,8 @@ routerAdd("POST", "/api/generate-post", (e) => {
     // ✅ Nouvelle syntaxe PocketBase v0.23+
     const data = e.requestInfo().body;
     const idea = data["idea"] ?? "";
+    const page_id = data["page_id"] ?? "";
+    const system_prompt = data["system_prompt"] ?? "";
 
     if (!idea) {
       throw new BadRequestError("Vous devez envoyer l'idée principale pour créer le post.");
@@ -21,7 +23,7 @@ routerAdd("POST", "/api/generate-post", (e) => {
       url:     "https://n8n.foudroyant.fun/webhook/social-helper-generate",
       method:  "POST",
       headers: { "Content-Type": "application/json" },
-      body:    JSON.stringify({ idea, user_id: authRecord.id }),
+      body:    JSON.stringify({ idea, page_id, system_prompt, user_id: authRecord.id }),
       timeout: 10,
     });
 
